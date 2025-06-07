@@ -72,3 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # quize app
     some questions in react
+# theQuizApp
