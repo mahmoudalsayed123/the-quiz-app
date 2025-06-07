@@ -267,15 +267,14 @@ function QuizeProvider({ children }) {
     dispatch({ type: "dataRecived", payload: questionsArr })
     dispatch({ type: "error", payload: 'Data Not Found' })
 
-    // useEffect(function () {
-    //     // fetch("http://localhost:9000/questions")
-    //     // fetch(`${questionsArr}`)
-    //     //     .then((res) => res.json())
-    //     //     .then((data) => dispatch({ type: "dataRecived", payload: data }))
-    //     //     .catch((err) => dispatch({ type: "error", payload: err }));
-    //     dispatch({ type: "dataRecived", payload: questionsArr })
-    //     dispatch({ type: "error", payload: 'Data Not Found' })
-    // }, []);
+    useEffect(function () {
+        fetch("http://localhost:9000/questions")
+            .then((res) => res.json())
+            .then((data) => dispatch({ type: "dataRecived", payload: data }))
+            .catch((err) => dispatch({ type: "error", payload: err }));
+        dispatch({ type: "dataRecived", payload: questionsArr })
+        dispatch({ type: "error", payload: 'Data Not Found' })
+    }, []);
 
     return (
         <QuizeContext.Provider value={{ status, questions, index, answer, points, remainingSeconds, maxPossiblePoints, heighScore, numberOfQuestions, dispatch }}>
